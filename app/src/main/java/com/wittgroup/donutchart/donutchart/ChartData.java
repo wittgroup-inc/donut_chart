@@ -1,152 +1,106 @@
 package com.wittgroup.donutchart.donutchart;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.graphics.Region;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Created by RIG on 16-03-2016.
  */
 public class ChartData implements Serializable {
     private static final long serialVersionUID = 1L;
+    private static RectF mRectF = new RectF();
+
     private final Path mPath = new Path();
-    private final Region mRegion = new Region();
-    private Float y_values, x_values, size, left, top, right, bottom, data, mValue;
-    private String cordinate;
+    private final Paint mPaint = new Paint();
+    private float sectorValue;
 
+    double startTime;
+    double stopTime;
 
-    private int color;
+    double currentAngle;
+    double currentSweep;
 
-    public ChartData() {
+    double innerRadiusRatio;
+
+    float width;
+    float height;
+
+    public ChartData(int color, float sectorValue, double innerRadiusRatio) {
+        mPaint.setAntiAlias(true);
+        mPaint.setColor(color);
+        this.sectorValue = sectorValue;
+        this.innerRadiusRatio = innerRadiusRatio;
     }
 
-    public ChartData(int color) {
-        this.color = color;
+
+    public void buildShape(double amount) {
+        float midX, midY, radius, innerRadius;
+        midX = width / 2;
+        midY = height / 2;
+        if (midX < midY) {
+            radius = midX;
+        } else {
+            radius = midY;
+        }
+        innerRadius = (float)(radius * innerRadiusRatio);
+        mPath.reset();
+        mRectF.set(midX - radius, midY - radius, midX + radius, midY + radius);
+        double relativeSweep = currentSweep * amount;
+        createArc(mPath, mRectF, relativeSweep, currentAngle, relativeSweep);
+        mRectF.set(midX - innerRadius, midY - innerRadius, midX + innerRadius, midY + innerRadius);
+        createArc(mPath, mRectF, relativeSweep, currentAngle + relativeSweep, -relativeSweep);
+        mPath.close();
     }
 
-    public ChartData(Float y_values, Float x_values) {
-        this.y_values = y_values;
-        this.x_values = x_values;
+    private void createArc(Path p, RectF mRectF, double currentSweep, double startAngle, double sweepAngle) {
+        if (currentSweep == 360) {
+            p.addArc(mRectF, (float)startAngle, (float)sweepAngle);
+        } else {
+            p.arcTo(mRectF, (float)startAngle, (float)sweepAngle);
+        }
     }
 
-    public ChartData(Float y_values, Float x_values, Float size) {
-        this.y_values = y_values;
-        this.x_values = x_values;
-        this.size = size;
+    public void setTime(double startTime, double stopTime) {
+        this.startTime = startTime;
+        this.stopTime = stopTime;
     }
 
-    protected ChartData(Float left, Float top, Float right, Float bottom) {
-        this.left = left;
-        this.top = top;
-        this.right = right;
-        this.bottom = bottom;
+    public void setAngles( double currentAngle, double currentSweep) {
+        this.currentAngle = currentAngle;
+        this.currentSweep = currentSweep;
     }
-
-    protected ChartData(Float y_axis, Float x_axis, Float size, String cordinate) {
-        this.y_values = y_axis;
-        this.x_values = x_axis;
-        this.size = size;
-        this.cordinate = cordinate;
-    }
-
-    public ChartData(Float val) {
-        this.data = val;
-    }
-
-    public Float getY_values() {
-        return y_values;
-    }
-
-    public void setY_values(Float y_values) {
-        this.y_values = y_values;
-    }
-
-    public Float getX_values() {
-        return x_values;
-    }
-
-    public void setX_values(Float x_values) {
-        this.x_values = x_values;
-    }
-
-    public Float getSize() {
-        return size;
-    }
-
-    public void setSize(Float size) {
-        this.size = size;
-    }
-
-    public Float getLeft() {
-        return left;
-    }
-
-    public void setLeft(Float left) {
-        this.left = left;
-    }
-
-    public Float getTop() {
-        return top;
-    }
-
-    public void setTop(Float top) {
-        this.top = top;
-    }
-
-    public Float getRight() {
-        return right;
-    }
-
-    public void setRight(Float right) {
-        this.right = right;
-    }
-
-    public Float getBottom() {
-        return bottom;
-    }
-
-    public void setBottom(Float bottom) {
-        this.bottom = bottom;
-    }
-
-    public Float getValue() {
-        return this.data;
-    }
-
-    public void setValue(Float data) {
-        this.data = data;
-    }
-
-    public String getCordinate() {
-        return this.cordinate;
-    }
-
-    public void setCordinate(String cordinate) {
-        this.cordinate = cordinate;
-    }
-
-    public Path getPath() {
-        return mPath;
-    }
-
-    public Region getRegion() {
-        return mRegion;
+    public void setSize(float width, float height) {
+        this.width = width;
+        this.height = height;
     }
 
     public float getSectorValue() {
-        return mValue;
+        return sectorValue;
     }
 
-    public void setSectorValue(float value) {
-        mValue = value;
+    public void setSectorValue(float sectorValue) {
+        this.sectorValue = sectorValue;
     }
 
-    public int getColor() {
-        return color;
+    public void setAlpha(int alpha) {
+        mPaint.setAlpha(alpha & 0xFF);
     }
 
-    public void setColor(int color) {
-        this.color = color;
+    public void draw(Canvas canvas) {
+        canvas.drawPath(mPath, mPaint);
     }
+
+    public void setAmount(double amount) {
+        buildShape(amount);
+        int alpha = (int) (amount * 255);
+        setAlpha(alpha);
+    }
+
 }
