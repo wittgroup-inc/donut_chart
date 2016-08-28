@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="skill_match_compatibility">#FF4D41</color>
+    <color name="experience_compatibility">#143361</color>
+    <color name="location_compatibility">#FFCC18</color>
+    <color name="project_longevity_compatibility">#D853D6</color>
+    <color name="project_worked_compatibility">#7D4FD6</color>
+    <color name="rating_compatibility">#4AC080</color>
+</resources>
