@@ -43,8 +43,6 @@ public class ChartData implements Serializable {
 
 
     public void buildShape(double amount) {
-        if (buildAmount == amount) return;
-        buildAmount = amount;
         float midX, midY, radius, innerRadius;
         midX = width / 2;
         midY = height / 2;
@@ -102,6 +100,9 @@ public class ChartData implements Serializable {
     }
 
     public void setAmount(double amount) {
+        if (buildAmount == amount) return;
+        buildAmount = amount;
+
         buildShape(amount);
         int alpha = (int) (amount * 255);
         setAlpha(alpha);
