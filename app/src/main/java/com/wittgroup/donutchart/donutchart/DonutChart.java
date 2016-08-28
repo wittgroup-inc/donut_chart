@@ -81,7 +81,7 @@ public class DonutChart extends View {
         prepareSlices();
         for (ChartData slice : mSlices) {
             if (slice.stopTime < time) {
-                slice.setAlpha(255);
+                slice.setAmount(1);
                 slice.draw(canvas);
 
             } else {

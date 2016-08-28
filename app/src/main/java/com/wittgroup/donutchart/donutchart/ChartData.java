@@ -32,6 +32,8 @@ public class ChartData implements Serializable {
     float width;
     float height;
 
+    double buildAmount;
+
     public ChartData(int color, float sectorValue, double innerRadiusRatio) {
         mPaint.setAntiAlias(true);
         mPaint.setColor(color);
@@ -41,6 +43,8 @@ public class ChartData implements Serializable {
 
 
     public void buildShape(double amount) {
+        if (buildAmount == amount) return;
+        buildAmount = amount;
         float midX, midY, radius, innerRadius;
         midX = width / 2;
         midY = height / 2;
