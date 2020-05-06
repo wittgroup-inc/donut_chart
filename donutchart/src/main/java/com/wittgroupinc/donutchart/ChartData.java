@@ -1,17 +1,14 @@
-package com.wittgroup.donutchart.donutchart;
+package com.wittgroupinc.donutchart;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.graphics.Region;
 
 import java.io.Serializable;
-import java.util.Random;
 
 /**
- * Created by RIG on 16-03-2016.
+ * Created by Pawan on 16-03-2016.
  */
 public class ChartData implements Serializable {
     private static final long serialVersionUID = 1L;

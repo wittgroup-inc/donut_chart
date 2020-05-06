@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/donutchart.iml" filepath="$PROJECT_DIR$/donutchart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/donut_chart.iml" filepath="$PROJECT_DIR$/donut_chart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/donutchart/donutchart.iml" filepath="$PROJECT_DIR$/donutchart/donutchart.iml" />
     </modules>
   </component>
 </project>

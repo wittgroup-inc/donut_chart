@@ -1,4 +1,4 @@
-package com.wittgroup.donutchart.donutchart;
+package com.wittgroupinc.donutchart;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -7,14 +7,10 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
-
-
-import com.wittgroup.donutchart.R;
-
 import java.util.ArrayList;
 
 /**
- * Created by RIG on 16-03-2016.
+ * Created by Pawan on 16-03-2016.
  */
 
 public class DonutChart extends View {

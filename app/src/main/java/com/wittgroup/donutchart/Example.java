@@ -1,15 +1,15 @@
 package com.wittgroup.donutchart;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.wittgroup.donutchart.donutchart.ChartData;
-import com.wittgroup.donutchart.donutchart.DonutChart;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.wittgroupinc.donutchart.DonutChart;
 
 
-public class Test extends AppCompatActivity {
+public class Example extends AppCompatActivity {
 
     private DonutChart donutChart;
 
@@ -19,7 +19,7 @@ public class Test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        b = (Button) findViewById(R.id.b);
+        b = findViewById(R.id.b);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,12 +27,11 @@ public class Test extends AppCompatActivity {
             }
         });
         drawChart();
-
     }
 
 
     private void drawChart() {
-        donutChart = (DonutChart) findViewById(R.id.donutchart);
+        donutChart = findViewById(R.id.donutchart);
         donutChart.clear();
         donutChart.addSector(getResources().getColor(R.color.skill_match_compatibility),50);
         donutChart.addSector(getResources().getColor(R.color.experience_compatibility),20);
