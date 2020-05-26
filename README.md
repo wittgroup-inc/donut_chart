@@ -1,5 +1,7 @@
 # Donut Chart
 
+![](sample.gif)
+
 Usage
 
 Step 1. Add the JitPack repository to your build file
