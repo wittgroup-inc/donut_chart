@@ -1,6 +1,6 @@
 # Donut Chart
 
-![](sample.gif|width=10)
+![](sample.gif)
 
 Usage
 
