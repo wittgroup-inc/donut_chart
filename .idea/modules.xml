@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/app.iml" filepath="$PROJECT_DIR$/example/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/donut_chart.iml" filepath="$PROJECT_DIR$/donut_chart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/donutchart/donut_chart-donutchart.iml" filepath="$PROJECT_DIR$/.idea/modules/donutchart/donut_chart-donutchart.iml" group="donut_chart/donutchart" />
       <module fileurl="file://$PROJECT_DIR$/donutchart/donutchart.iml" filepath="$PROJECT_DIR$/donutchart/donutchart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/example.iml" filepath="$PROJECT_DIR$/.idea/modules/app/example.iml" group="donut_chart/example" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tt-donut_chart.iml" filepath="$PROJECT_DIR$/.idea/modules/tt-donut_chart.iml" group="donut_chart" />
     </modules>
   </component>
 </project>
