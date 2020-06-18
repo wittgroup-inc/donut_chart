@@ -33,10 +33,10 @@ public class Example extends AppCompatActivity {
     private void drawChart() {
         donutChart = findViewById(R.id.donutchart);
         donutChart.clear();
-        donutChart.addSector(getResources().getColor(R.color.skill_match_compatibility),50);
-        donutChart.addSector(getResources().getColor(R.color.experience_compatibility),20);
-        donutChart.addSector(getResources().getColor(R.color.location_compatibility),10);
-        donutChart.addSector(getResources().getColor(R.color.project_worked_compatibility),10);
-        donutChart.addSector(getResources().getColor(R.color.rating_compatibility),10);
+        donutChart.addSector(getResources().getColor(R.color.one),50);
+        donutChart.addSector(getResources().getColor(R.color.two),20);
+        donutChart.addSector(getResources().getColor(R.color.three),10);
+        donutChart.addSector(getResources().getColor(R.color.four),10);
+        donutChart.addSector(getResources().getColor(R.color.five),10);
     }
 }
