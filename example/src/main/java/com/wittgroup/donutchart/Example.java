@@ -12,15 +12,14 @@ import com.wittgroupinc.donutchart.DonutChart;
 public class Example extends AppCompatActivity {
 
     private DonutChart donutChart;
-
-    private Button b;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        b = findViewById(R.id.b);
-        b.setOnClickListener(new View.OnClickListener() {
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 donutChart.animate_time();
@@ -28,7 +27,6 @@ public class Example extends AppCompatActivity {
         });
         drawChart();
     }
-
 
     private void drawChart() {
         donutChart = findViewById(R.id.donutchart);

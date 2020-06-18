@@ -1,1 +1,1 @@
-include ':app', ':donutchart'
+include ':example', ':donutchart'
